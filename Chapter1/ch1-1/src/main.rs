@@ -2,6 +2,11 @@ fn main() {
     sub1();
     sub2();
     sub3();
+    sub4();
+    sub5();
+    sub6();
+    sub7();
+    sub8();
 }
 
 
@@ -31,7 +36,7 @@ fn sub3() {
 
     println!("{}", 1.0 / give_number() as f64);
 
-    println!("{}", multiply(8, 5));
+    println!("{}", multiply(8,5));
 }
 
 fn give_number() -> i32 {
@@ -40,4 +45,42 @@ fn give_number() -> i32 {
 
 fn multiply(x: i32, y: i32) -> i32 {
     x * y
+}
+
+fn sub4() {
+    let color1 = "red";
+    let color2 = "blue";
+    let color3 = "green";
+    println!("{color1} {color2} {color3}");
+}
+
+fn sub5() {
+    let x = {
+        let y = 5;
+        y + 1
+    };
+
+    println!("{x}");
+}
+
+fn sub6() {
+    let x = [1,2,3];
+    println!("{:?}", x);
+    println!("{:#?}", x);
+}
+
+fn sub7() {
+    println!("i8: {} {}", i8::MIN, i8::MAX);
+}
+
+fn sub8() {
+    let x = 8;
+    println!("{x}");
+    {
+        let x = 2.3;
+        println!("{x}");
+    }
+    println!("{x}");
+    let x = "hello";
+    println!("{x}");
 }
