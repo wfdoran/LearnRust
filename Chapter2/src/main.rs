@@ -2,6 +2,9 @@ fn main() {
     sub2_1();
     sub2_2();
     sub2_3();
+    sub2_4();
+    sub2_5();
+    sub2_6();
 }
 
 fn sub2_1() {
@@ -46,4 +49,57 @@ static FIB: [i32; 8] = [1,1,2,3,5,8,13,21];
 fn sub2_3() {
     println!("{}", 3.2 * MM_PER_INCH);
     println!("{}", FIB[4]);
+}
+
+fn return_str() -> String {
+    let country = String::from("Mexico");
+    country
+}
+
+fn sub2_4() {
+    let country = String::from("Canada");
+    let ref_one = &country;
+    let ref_two = &country;
+    println!("{}", ref_one);
+
+
+    let q = return_str();
+    println!("{}", q);
+
+    println!("{}", ref_two);
+}
+
+fn sub2_5() {
+    let mut n = 4;
+    let r = &mut n;
+    println!("{}", r);
+    // n = 5;
+    *r += 5;
+    println!("{}", r);
+
+    let q = &mut n;
+
+    println!("{}", q);
+
+    n = 100;
+    println!("{}", n);
+    
+    {
+        let mut number = 10;
+        let number_change = &mut number;
+        *number_change += 10;
+        let number_ref = &number;
+        println!("{}", number_ref);
+    }
+}
+
+
+fn sub2_6() {
+    {
+        let country = String::from("Austria");
+        let country_ref = &country;
+        let country = 8;
+        println!("{country_ref} {country}");
+    }
+
 }
