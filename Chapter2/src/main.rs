@@ -5,6 +5,7 @@ fn main() {
     sub2_4();
     sub2_5();
     sub2_6();
+    sub2_7();
 }
 
 fn sub2_1() {
@@ -102,4 +103,48 @@ fn sub2_6() {
         println!("{country_ref} {country}");
     }
 
+}
+
+fn print_country1(name: String) {
+    println!("{name}");
+}
+
+fn print_country2(name: &String) {
+    println!("{name}");
+}
+
+fn print_country3(name: String) -> String {
+    println!("{name}");
+    name
+}
+
+fn add_asia(name: &mut String) {
+    name.push_str("-asia")
+}
+
+fn sub2_7() {
+    {
+        let x = String::from("Japan");
+        print_country1(x.clone());
+        print_country1(x);
+    }
+
+    {
+        let x = String::from("Korea");
+        print_country2(&x);
+        print_country2(&x);
+    }
+
+    {
+        let mut x = String::from("china");
+        x = print_country3(x);
+        x = print_country3(x);
+
+    }
+
+    {
+        let mut x = String::from("Vietnam");
+        add_asia(&mut x);
+        println!("{x}");
+    }
 }
