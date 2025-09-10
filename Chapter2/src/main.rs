@@ -6,6 +6,9 @@ fn main() {
     sub2_5();
     sub2_6();
     sub2_7();
+    sub2_8();
+    sub2_9();
+    sub2_10();
 }
 
 fn sub2_1() {
@@ -138,7 +141,7 @@ fn sub2_7() {
     {
         let mut x = String::from("china");
         x = print_country3(x);
-        x = print_country3(x);
+        _ = print_country3(x);
 
     }
 
@@ -147,4 +150,35 @@ fn sub2_7() {
         add_asia(&mut x);
         println!("{x}");
     }
+}
+
+fn print_value(x: i32) {
+    println!("{}", x);
+}
+
+fn sub2_8() {
+    let x = 5;
+    print_value(x);   // Copy trait, no clone needed
+    print_value(x);
+}
+
+fn sub2_9() {
+    let x;
+
+    {
+        let y = {
+            17
+        };
+        x = y;
+    }
+    println!("{x}");
+}
+
+fn sub2_10() {
+    println!("\tSTart\nnewline");
+    println!();
+    println!("hello
+world
+again");
+
 }
