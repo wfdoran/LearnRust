@@ -3,6 +3,7 @@ fn main() {
     sub3_1_2();
     sub3_1_3();
     sub3_2();
+    sub3_2_3();
 }
 
 fn sub3_1_1() {
@@ -102,4 +103,50 @@ fn sub3_2() {
         y @ 0..=127 => println!("{y} is low"),
         y @ 128..=255 => println!("{y} is hi"),
     }
+}
+
+fn sub3_2_3() {
+    let mut counter = 0;
+    loop {
+        counter += 1;
+        println!("{counter}");
+        if counter >= 5 {
+            break;
+        }
+    }
+
+
+    let mut x = 1;
+    'outer_loop: loop {
+        let mut y = 1;
+        loop {
+            let p = x * y;
+            if p > 30 {
+                break 'outer_loop
+            }
+            println!("{}", x * y);
+            y += 1;
+            if y > x {
+                break;
+            }
+        }
+        x += 1;
+    }
+
+    for x in 0..3 {
+        println!("{x}");
+    }
+
+    for x in 0..=3 {
+        println!("{x}");
+    }
+
+    let mut q = 5;
+    let rrr = loop {
+        q += 1;
+        if q % 53 == 3 {
+            break q;
+        }
+    };
+    println!("{rrr}");
 }
