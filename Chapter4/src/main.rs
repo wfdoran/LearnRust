@@ -2,6 +2,8 @@ fn main() {
     sub4_1();
     sub4_1_3();
     sub4_1_5();
+    sub4_2_1();
+    sub4_3_1();
 }
 
 #[derive(Debug)]
@@ -148,4 +150,72 @@ fn sub4_1_5() {
     x.to_dog();
     x.age(10);
     println!("{:?}", x);
+}
+
+
+struct Person {
+    name: String,
+    real_name: String,
+    height: u8,
+    happiness: bool,
+}
+
+fn sub4_2_1() {
+    let papa_doc = Person {
+        name: "Papa Doc".to_string(),
+        real_name: "Clarence".to_string(),
+        height: 170,
+        happiness: false
+    };
+ 
+    let Person {
+        name: fake_name,
+        real_name,
+        height,
+        happiness,
+    } = papa_doc;
+ 
+    println!("They call him {fake_name} but his real name is {real_name}. 
+    He is {height} cm tall and is he happy? {happiness}");
+
+    let x = City::new("Tallinn", "Reval", 426_538, 1219);
+    x.print_names();
+
+}
+
+struct City {
+    name: String,
+    name_before: String,
+    population: u32,
+    date_founded: u32,
+}
+
+impl City {
+    fn new(name: &str, name_before: &str, population: u32, date_founded: u32) -> Self {
+        Self {
+            name: String::from(name),
+            name_before: String::from(name_before),
+            population: population,
+            date_founded: date_founded,
+        }
+    }
+
+    fn print_names(&self) {
+        let City {
+            name, name_before, ..
+        } = self;
+        println!("The city {name} used to be called {name_before}");
+    }
+}
+
+
+fn sub4_3_1() {
+    let my_name = "Billy".to_string();
+    println!("{}", my_name.is_empty());
+    println!("{}", &&&&&&my_name.is_empty());
+
+    let y = "Billy".to_string();
+    println!("{}", my_name == y);
+
+
 }
