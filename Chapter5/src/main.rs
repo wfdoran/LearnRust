@@ -41,6 +41,33 @@ fn chap5_1() {
     cmp_and_display("bbb", 2.5, 7.3);
 }
 
+
+fn take_fifth_item(value: &Vec<i32>) -> Option<i32> {
+    if (value.len() < 5) {
+        None
+    } else {
+        Some(value[4])
+    }
+}
+
+fn print_value(x: Option<i32>) {
+    match x {
+        Some(a) => println!("found {a}"),
+        None => println!("found None!"),
+    }
+}
+
+fn chap5_2_1() {
+    let a = vec![1,2];
+    let b = vec![3,4,5,6,7,8];
+    println!("{:?} {:?}", take_fifth_item(&a), take_fifth_item(&b));
+    print_value(take_fifth_item(&a));
+    print_value(take_fifth_item(&b));
+    println!("{} {}", take_fifth_item(&a).is_none(), take_fifth_item(&a).is_some());
+
+}
+
 fn main() {
     chap5_1();
+    chap5_2_1();
 }
