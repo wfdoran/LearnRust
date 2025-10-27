@@ -67,7 +67,42 @@ fn chap5_2_1() {
 
 }
 
+fn is_even(input: i32) -> Result<i32, String> {
+    if input % 2 == 0 {
+        return Ok(input / 2)
+    } else {
+        return Err(format!("{input} is odd."))
+    }
+}
+
+fn chap5_2_2() {
+    println!("{:?}", is_even(10));
+    println!("{:?}", is_even(11));
+}
+
+fn chap5_2_3() {
+    let a = vec![2,3,4];
+    println!("{:?}", a.get(1));
+    println!("{:?}", a.get(10));
+
+    for index in 0..10 {
+        if let Some(b) = a.get(index) {
+            println!("a[{index}] = {b}");
+        }
+    }
+
+    for index in 0..10 {
+        let Some(b) = a.get(index) else {
+            continue;
+        };
+        println!("a[{index}] = {b}");
+
+    }
+}
+
 fn main() {
     chap5_1();
     chap5_2_1();
+    chap5_2_2();
+    chap5_2_3();
 }
